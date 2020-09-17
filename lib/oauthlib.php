@@ -516,7 +516,7 @@ abstract class oauth2_client extends curl {
                 'client_id' => $this->clientid,
                 'response_type' => 'code',
                 'redirect_uri' => $callbackurl->out(false),
-                'state' => $this->returnurl->out_as_local_url(false),
+                'state' => base64_encode($this->returnurl->out_as_local_url(false)),
                 'scope' => $this->scope,
             ],
             $this->get_additional_login_parameters()
